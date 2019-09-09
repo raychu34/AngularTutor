@@ -1,17 +1,35 @@
-<div class="login-page">
-  <div class="form">
-    <form class="register-form">
-      <input type="text" placeholder="name"/>
-      <input type="password" placeholder="password"/>
-      <input type="text" placeholder="email address"/>
-      <button>create</button>
-      <p class="message">Already registered? <a href="#">Sign In</a></p>
-    </form>
-    <form class="login-form">
-      <input type="text" placeholder="username"/>
-      <input type="password" placeholder="password"/>
-      <button>login</button>
-      <p class="message">Not registered? <a href="#">Create an account</a></p>
+
+<h1>Menu</h1>
+<hr>
+<div class="flexContainerAuto">
+
+  <div class="redBox">
+    <form>
+      <p>Please select your veggie:</p>
+      <span *ngFor="let ve of allVeggies">
+      <input type="radio" name="veggie" value="{{ ve }}" [(ngModel)]="veggie"> {{ ve }}<br>
+      </span>
     </form>
   </div>
+  <div class="redBox">
+    <form>
+      <p>Please select your protein:</p>
+      <span *ngFor="let pr of allProteins">
+      <input type="radio" name="protein" value="{{ pr }}" [(ngModel)]="protein"> {{ pr }}<br>
+      </span>
+
+    </form>
+  </div>
+
+  <div style="margin-bottom: 10px; margin-left: 5%">
+    <button type="button" class="btn btn-primary" (click)="orderDish()" style="margin-right: 10px">Submit</button>
+    <button type="button" class="btn btn-primary" (click)="clearOrder()">Reset</button>
+  </div>
+
 </div>
+
+<div *ngIf="isSubmitted" class="informBoxBoarder" style="margin: 10px"> You ordered {{ dishOrdered }} </div>
+
+
+
+

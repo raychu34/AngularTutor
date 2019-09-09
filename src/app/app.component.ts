@@ -7,5 +7,20 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'jiuzhangAngular';
-  changeableName = 'myName';
+  isSubmitted = false;
+  allVeggies = ['string bean', 'garlic', 'broccoli'];
+  allProteins = ['chicken', 'beef', 'shrimp'];
+  veggie: string;
+  protein: string;
+  dishOrdered = 'test ' + this.veggie;
+
+  orderDish() {
+    this.isSubmitted = true;
+    this.dishOrdered = this.veggie + ' ' + this.protein;
+
+  }
+  clearOrder() {
+    this.isSubmitted = false;
+    this.dishOrdered = '';
+  }
 }
