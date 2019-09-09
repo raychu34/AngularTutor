@@ -16,7 +16,17 @@ export class AppComponent {
 
   orderDish() {
     this.isSubmitted = true;
-    this.dishOrdered = this.veggie + ' ' + this.protein;
+    if(this.veggie == undefined)
+    {
+      this.dishOrdered = 'Please select a veggie';
+    }
+    else if(this.protein == undefined)
+    {
+      this.dishOrdered = 'Please select a protein';
+    }
+    else {
+      this.dishOrdered = this.veggie + ' ' + this.protein;
+    }
 
   }
   clearOrder() {
